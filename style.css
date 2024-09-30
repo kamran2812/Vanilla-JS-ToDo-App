@@ -1,0 +1,233 @@
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide overflow on body to prevent extra scrollbars */
+}
+
+/* Container for the whole app */
+.container {
+    background: linear-gradient(145deg, #1a1a1a, #000000);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    width: 50vw; /* Default width */
+    border: 1px solid #333;
+    position: relative;
+    height: 90vh; /* Set height to fit in viewport */
+    overflow: auto; /* Enable scrolling within the container */
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: fixed; /* Fix header position */
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(145deg, #1a1a1a, #000000);
+    padding: 10px 20px; /* Add padding to header */
+    z-index: 1000; /* Ensure header stays on top */
+}
+
+/* Space for header in content */
+.content {
+    margin-top: 70px; /* Adjust this value based on header height */
+}
+
+/* Profile picture styling */
+.header .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular profile picture */
+    background-color: #333; /* Dark background for profile picture */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px; /* Adjust as needed */
+}
+
+/* Add New Task button styling */
+.header .add-task-button {
+    background-color: #ff4500; /* Scary orange color */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Add New Task button hover effect */
+.header .add-task-button:hover {
+    background-color: #ff6347; /* Brighter orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Container for the input field and button */
+.header .search-container {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    flex-wrap: wrap; /* Allow wrapping of items */
+}
+
+/* Search input styling */
+.header .search-input {
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Maximum width */
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    font-size: 16px; /* Adjust as needed */
+    outline: none;
+    margin-right: 10px; /* Space between input and button */
+}
+
+/* Task section styling */
+.task-section {
+    background-color: #1b1b1b; /* Dark background for the section */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Shadow for a more intense look */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    margin-top: 50px; /* Space from the header */
+}
+
+/* Task list styling */
+.task-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Task item styling */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #444; /* Divider line between tasks */
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Allow tasks to wrap if necessary */
+}
+
+/* Task text styling */
+.task-item p {
+    margin: 0;
+    color: #e0e0e0; /* Pale text color */
+}
+
+/* Task buttons container */
+.task-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+/* General button styling */
+.btn {
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Done button styling */
+.done-button {
+    background-color: #4CAF50; /* Green color for done */
+}
+
+/* Delete button styling */
+.delete-button {
+    background-color: #f44336; /* Red color for delete */
+}
+
+/* Button hover effects */
+.done-button:hover {
+    background-color: #45a049; /* Darker green */
+    transform: scale(1.05);
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Darker red */
+    transform: scale(1.05);
+}
+
+/* Animation for task section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90vw; /* Increase width on smaller screens */
+        padding: 15px;
+    }
+
+    .header .search-container {
+        flex-direction: column; /* Stack input and button vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .header .search-input {
+        width: 100%; /* Full width on small screens */
+        margin: 0 0 10px 0; /* Space below the input */
+    }
+
+    .header .add-task-button {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .header .profile-pic {
+        width: 40px;
+        height: 40px;
+        font-size: 20px; /* Smaller font size */
+    }
+
+    .header .add-task-button {
+        font-size: 14px; /* Smaller font size */
+        padding: 8px 16px; /* Adjust padding */
+    }
+
+    .header .search-input {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .btn {
+        font-size: 12px; /* Smaller font size for buttons */
+        padding: 6px 12px; /* Adjust padding */
+    }
+}
+
+
